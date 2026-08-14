@@ -11,6 +11,10 @@ $sql = "UPDATE livros SET titulo=?, autor=?, ano=? WHERE id=?";
 
 $stmt = mysqli_prepare($conexao, $sql);
 
+if (!$stmt) {
+    die("Erro ao preparar a consulta.");
+}
+
 mysqli_stmt_bind_param($stmt, "ssii", $titulo, $autor, $ano, $id);
 
 mysqli_stmt_execute($stmt);
