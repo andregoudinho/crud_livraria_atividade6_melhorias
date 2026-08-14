@@ -1,4 +1,4 @@
-# Documento com a pesquisa e analise sobre Prepared Statements
+# Documento com a pesquisa e análise sobre Prepared Statements
 ## O que são Prepared Statements?
 Modelo mais seguro de fazer comandos SQL. Separam o comando dos dados que o usuário envia, usando marcadores como ? para colocar os valores depois.
 Com isso, ajuda a evitar ataques de SQL injection, porque os dados enviados pelo usuário não são como parte do comando SQL. Também tem quando a consulta é usada várias vezes, pode ajudar a melhorar o desempenho.
@@ -34,12 +34,9 @@ A tabela `livros` tem informações como `id`, `titulo`, `autor` e `ano`.
 
 ## Problemas encontrados
 Depois de analisar o codigo, encontrei alguns pontos que podem ser melhorados:
-- Dados direto no SQL
-No cadastro, os dados do livro são colocados diretamente na consulta. O mais seguro seria usar `?` e passar os valores separados.
-- Atualização
-Na atualização acontece a mesma coisa, os dados sao colocados direto no SQL. Tambem seria melhor usar Prepared Statements.
-- ID na consulta
-Na exclusão, o `id` vem pela URL e e colocado diretamente no comando. Por isso, o ideal é usar um parâmetro para deixar a consulta mais segura.
+- Dados direto no SQL: No cadastro, os dados do livro são colocados diretamente na consulta. O mais seguro seria usar `?` e passar os valores separados.
+- Atualização: Na atualização acontece a mesma coisa, os dados sao colocados direto no SQL. Tambem seria melhor usar Prepared Statements.
+- ID na consulta: Na exclusão, o `id` vem pela URL e e colocado diretamente no comando. Por isso, o ideal é usar um parâmetro para deixar a consulta mais segura.
 
 ## Exemplo de alteração
 Para testar o Prepared Statement, escolhi primeiro a parte de cadastro de livros.
@@ -56,7 +53,7 @@ mysqli_query($conexao, $sql);
 ```
 O problema dessa forma é que os valores recebidos pelo formulario são colocados diretamente dentro do SQL.
 
-## Código com Prepared Statement
+### Código com Prepared Statement
 Uma forma de fazer essa mesma parte de maneira mais segura seria:
 ```php
 $titulo = $_POST["titulo"];
