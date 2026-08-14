@@ -10,6 +10,10 @@ $sql = "INSERT INTO livros (titulo, autor, ano) VALUES (?, ?, ?)";
 
 $stmt = mysqli_prepare($conexao, $sql);
 
+if (!$stmt) {
+    die("Erro ao preparar a consulta.");
+}
+
 mysqli_stmt_bind_param($stmt, "ssi", $titulo, $autor, $ano);
 
 mysqli_stmt_execute($stmt);
