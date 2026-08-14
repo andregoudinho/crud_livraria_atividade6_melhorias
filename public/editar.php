@@ -30,13 +30,13 @@ $livro =mysqli_fetch_assoc($resultado);
             <input type="hidden" name="id" value="<?php echo $livro["id"]?>">
 
             <label for="titulo">Título:</label>
-            <input type="text" name="titulo" value="<?php echo $livro["titulo"]?>">
+            <input type="text" name="titulo" value="<?php echo $livro["titulo"]?>" required>
             <br>
             <label for="autor">Autor:</label>
-            <input type="text" name="autor" value="<?php echo $livro["autor"]?>">
+            <input type="text" name="autor" value="<?php echo $livro["autor"]?>" required>
             <br>
             <label for="ano">Ano de Publicação:</label>
-            <input type="number" name="ano" value="<?php echo $livro["ano"]?>">
+            <input type="number" name="ano" value="<?php echo $livro["ano"]?>" required>
             <br>
             <button type="submit">Atualizar</button>
         </form>
